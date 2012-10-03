@@ -11,8 +11,6 @@ import twitter4j.*;
 /**
  *
  *
- * token : 304839785-IViLmo7jOAKRRW4cZlUUthcxmffNIj9dLcEjgLWs
-tokenSecret : w0NwhdbWmZOcy0hrkGWUn7fmmFsKffkGYb55lxdWyg
  *
  *
  *
