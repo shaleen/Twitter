@@ -59,7 +59,7 @@ public class Main {
 
 //Username idVinayak Sood 293547099
 
-        AccessToken accessToken = new AccessToken("304839785-IViLmo7jOAKRRW4cZlUUthcxmffNIj9dLcEjgLWs", "w0NwhdbWmZOcy0hrkGWUn7fmmFsKffkGYb55lxdWyg");
+        AccessToken accessToken = new AccessToken("xxxxxxx", "xxxxxxx");
 
         twitter.setOAuthAccessToken(accessToken);
 
