@@ -221,7 +221,7 @@ public class Main {
                         File dir = new File("//home//shaleen//" + u.getId());
                         dir.mkdirs();
                         File file = new File(dir, "user.txt");
-                        BufferedWriter outputofuser = new BufferedWriter(new FileWriter(file, true));
+                        BufferedWriter outputofuser = new BufferedWriter(new FileWriter(file, false));
                         outputofuser.write(json.toString(5));
                         outputofuser.flush();
                         System.out.println("Username id" + u.getName() + " " + u.getId());
@@ -248,7 +248,7 @@ public class Main {
                                 File dir = new File("//home//shaleen//" + user.getId());
                                 dir.mkdirs();
                                 File file = new File(dir, "tweets.txt");
-                                BufferedWriter output = new BufferedWriter(new FileWriter(file, true));
+                                BufferedWriter output = new BufferedWriter(new FileWriter(file, false));
                                 output.write(json.toString(5));
                                 output.flush();
                             }
