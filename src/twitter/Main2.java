@@ -59,7 +59,7 @@ public class Main {
 
 //Username idVinayak Sood 293547099
 
-        AccessToken accessToken = new AccessToken("xxxxxxx", "xxxxxxx");
+        AccessToken accessToken = new AccessToken("xxxxxxxxxxx", "xxxxxxxxxx");
 
         twitter.setOAuthAccessToken(accessToken);
 
@@ -82,10 +82,10 @@ public class Main {
             arr[i] = bfsarray.get(i);
         }
 try{
-    //lookUpUsers(twitter, arr);// eliminate if you can copy this from twitter folder by renaming them.
+  lookUpUsers(twitter, arr);// eliminate if you can copy this from twitter folder by renaming them.
 //        lookUpTweets(twitter,arr);// eliminate if you can copy this from twitter folder by renaming them.
-        lookUpFriends(twitter, arr);
-        lookUpFollowers(twitter, arr);
+   //    lookUpFriends(twitter, arr);
+     //   lookUpFollowers(twitter, arr);
 }catch(Exception e) {
     System.out.println(e.getLocalizedMessage());
 }
@@ -115,10 +115,11 @@ try{
                     Thread.sleep(rate.getSecondsUntilReset() * 1001);
                     System.out.println("Sleeping end");
                     i--;
+                    status = null;
                 }
         }
            try {
-             if (status != null && twitter.getRateLimitStatus().getRemainingHits() != 350) {
+             if (status != null ) {
                                 System.out.println(DataObjectFactory.getRawJSON(status));
                                 JSONArray json = new JSONArray(DataObjectFactory.getRawJSON(status));
                                 File dir = new File("//home//shaleen//Twitter//Rajan2");
@@ -272,6 +273,7 @@ private static void lookUpFriends(Twitter twitter, long[] arr) throws TwitterExc
 
         try{
         users = twitter.lookupUsers(idList);
+         
         }catch(TwitterException t) {
              System.out.println("TwitterException caught:" + t.getErrorMessage() + t.getExceptionCode());
                 RateLimitStatus rate = t.getRateLimitStatus();
@@ -292,20 +294,24 @@ private static void lookUpFriends(Twitter twitter, long[] arr) throws TwitterExc
         }
 
 
-System.out.println(users.size());
 
 
-                        if(users != null && twitter.getRateLimitStatus().getRemainingHits() != 350) {
+
+                        if(users != null ) {
                             for(int j = 0 ; j<users.size() ; j++) {
                                User user = users.get(j);
+                               if(user != null) {
+                                    JSONObject obj = new JSONObject(DataObjectFactory.getRawJSON(user));
+                                System.out.println(DataObjectFactory.getRawJSON(users.get(0)));
                                 System.out.println(DataObjectFactory.getRawJSON(user));
                                 File dir = new File("//home//shaleen//Twitter//Rajan2");
                                 File file = new File(dir, "user_" + user.getId());
                                 BufferedWriter outputofuser = new BufferedWriter(new FileWriter(file, false));
                                
-                                JSONObject obj = new JSONObject(DataObjectFactory.getRawJSON(user));
+                               
                                 outputofuser.write(obj.toString(5));
                                 outputofuser.flush();
+                               }
                                
                             }
                         }
